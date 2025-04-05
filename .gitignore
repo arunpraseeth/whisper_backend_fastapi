@@ -1,0 +1,19 @@
+# Virtual environment files
+venv/
+lib/
+
+# Python interpreter-related files
+*.pyc
+__pycache__/
+
+# Build artifacts
+*.so
+*.dll
+*.dylib
+
+# Dependency installations (e.g., pip, conda)
+pip*
+conda*
+
+# Other files that should be ignored
+.DS_Store

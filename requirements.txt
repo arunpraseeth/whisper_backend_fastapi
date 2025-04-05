@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+scipy
+numpy
+git+https://github.com/openai/whisper.git
+bark
+requests
+transformers
+torch
