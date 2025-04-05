@@ -1,3 +1,5 @@
+################################## Do not delete this - this is working BARK code ##################################
+
 # import numpy as np
 # from bark import SAMPLE_RATE, generate_audio
 # from scipy.io.wavfile import write as write_wav
@@ -21,7 +23,7 @@
 
 
 
-# Using local TTS
+################################## Using Local mac TTS ##################################
 import subprocess
 import uuid
 

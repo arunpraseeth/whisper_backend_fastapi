@@ -19,7 +19,9 @@ backend/
 
 🧠 1.6 Connect to LLM
 
-🔈 1.7 Bark Utility (bark_utils.py)
+!!!!!!!!!! If you donot have GPU proceed to 1.8 (bark requires GPU if not it will be slow)!!!!!!!!!!
+
+🔈 1.7 Bark Utility (bark_utils.py) (In order to make the process faster - need a GPU)
     * This will download a 5GB file for the first time.
     * There will be a issue regarding weights_load:
         torch.load() now loads only weights for safety and we have to specify that in bark - generation.py file (making it safe)
@@ -28,6 +30,8 @@ backend/
                 change: checkpoint = torch.load(ckpt_path, map_location=device) to checkpoint = torch.load(ckpt_path, map_location=device, 
                 weights_only = False)
     * Again it will download few more files
+
+    1.8 - Update - I do not have GPU and so it's taking more time to synthesize text to speech, so I'm using native TTS in my mobile.
 
 
 📱 STEP 2: Connect Flutter to FastAPI
