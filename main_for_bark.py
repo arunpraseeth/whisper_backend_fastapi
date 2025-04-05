@@ -1,3 +1,5 @@
+################################## If using this file(BARK), then delete the main.py ##################################
+
 from fastapi import FastAPI, UploadFile, File
 from whisper_utils import transcribe_audio
 from bark_utils import generate_speech
@@ -21,9 +23,16 @@ async def voice_interaction(audio: UploadFile = File(...)):
     ai_reply = generate_reply(user_text)
     print("AI reply:", ai_reply)
 
+    audio_reply_path = generate_speech(ai_reply)
+
     os.remove(temp_filename)
 
     return {
         "user_text": user_text,
         "ai_reply": ai_reply,
+        "audio_url": f"/audio/{audio_reply_path}" #Commenting this code because, we are using local TTS (Donot delete this line)
     }
+
+@app.get("/audio/{filename}")
+def get_audio(filename: str):
+    return FileResponse(path=filename, media_type='audio/wav', filename=filename)
