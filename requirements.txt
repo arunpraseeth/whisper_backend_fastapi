@@ -7,3 +7,4 @@ bark
 requests
 transformers
 torch
+python-multipart
