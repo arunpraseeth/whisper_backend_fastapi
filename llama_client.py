@@ -1,7 +1,7 @@
 import requests
 
 def generate_reply(prompt):
-    response = requests.post("http://192.168.2.38/v1/chat/completions", json={
+    response = requests.post("http://0.0.0.0:7005/v1/chat/completions", json={
         "model": "meta-llama-3-8b-instruct",
         "messages": [
             {"role": "user", "content": prompt},
