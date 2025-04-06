@@ -17,3 +17,4 @@ conda*
 
 # Other files that should be ignored
 .DS_Store
+.env

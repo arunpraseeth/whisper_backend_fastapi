@@ -5,8 +5,15 @@ from llama_client import generate_reply
 import uuid
 import os
 from fastapi.responses import FileResponse
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = FastAPI()
+
+# Access sensitive information securely
+client_url = os.getenv("CLIENT_URL")
 
 @app.post("/voice")
 async def voice_interaction(audio: UploadFile = File(...)):
@@ -17,8 +24,10 @@ async def voice_interaction(audio: UploadFile = File(...)):
 
     user_text = transcribe_audio(temp_filename)
     print("User said:", user_text)
+    print("client:", client_url)
 
-    ai_reply = generate_reply(user_text)
+
+    ai_reply = generate_reply(user_text, client_url)
     print("AI reply:", ai_reply)
 
     os.remove(temp_filename)
